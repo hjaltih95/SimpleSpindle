@@ -1,0 +1,770 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		15A270F9889F48E385E114E4 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A3D07537B1D24A4E80CC2A7C /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				EBCD39959B5246A2970208E1 /* CMake Rules */,
+			);
+			dependencies = (
+				AA65785CBF3F4676B8C47648 /* PBXTargetDependency */,
+				2AC4FE0D4E2747AC9B9C1496 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		7B00D1D99B9046CD885E84F4 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1AFD6F0E133D4C30918829EE /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				AEE6D1C659D44145B21C5648 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		1E533E4CED38483D81A62F95 /* SimpleSpindle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A10B061A64CF6BC8BD19C /* SimpleSpindle.cpp */; };
+		EFCFF00327430B14008D34BF /* mainSpindle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFCFF00227430B14008D34BF /* mainSpindle.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20C3BE77650F448A833C664F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D22517D5B239458487616F63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B00D1D99B9046CD885E84F4;
+			remoteInfo = ZERO_CHECK;
+		};
+		6D598B6657E242569AE5C3B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D22517D5B239458487616F63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 462476E740E74B7DA3996FF4;
+			remoteInfo = simpleSpindle;
+		};
+		FD0D94084EF64C6D90E7A828 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D22517D5B239458487616F63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B00D1D99B9046CD885E84F4;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0DA4BBF5519944BC8284EA5F /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		154433EF48FC4B1094DD2DDC /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		1D5A10B061A64CF6BC8BD19C /* SimpleSpindle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = SimpleSpindle.cpp; sourceTree = SOURCE_ROOT; };
+		92E5DEDDFFEE494AB84391EE /* SimpleSpindle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = SimpleSpindle.h; sourceTree = SOURCE_ROOT; };
+		CFDD081D36BA4B40BBE75B40 /* osimSimpleSpindleDLL.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = osimSimpleSpindleDLL.h; sourceTree = SOURCE_ROOT; };
+		EA6E3FFC60BA4821AC9D5D91 /* simpleSpindle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = simpleSpindle; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFCFF00227430B14008D34BF /* mainSpindle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mainSpindle.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5B5EB11845746FABD0C0C6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		124EC5996877455C9B9903F2 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				1C2B782183424AE1B6FAC6A7 /* CMake Rules */,
+				154433EF48FC4B1094DD2DDC /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		1C2B782183424AE1B6FAC6A7 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		3B5A77DEFD2342E7A2C7DCD2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70E47B6E980C4FE2AAC9BA5B /* simpleSpindle */ = {
+			isa = PBXGroup;
+			children = (
+				CB8014A053E64CE69D852340 /* Source Files */,
+				AA9D03D60F1A40EC9379459D /* Header Files */,
+				0DA4BBF5519944BC8284EA5F /* CMakeLists.txt */,
+			);
+			name = simpleSpindle;
+			sourceTree = "<group>";
+		};
+		99F38CF497C44B5AAA69C8F6 = {
+			isa = PBXGroup;
+			children = (
+				70E47B6E980C4FE2AAC9BA5B /* simpleSpindle */,
+				124EC5996877455C9B9903F2 /* ALL_BUILD */,
+				E3D279462D94466995C25ED4 /* Products */,
+				3B5A77DEFD2342E7A2C7DCD2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AA9D03D60F1A40EC9379459D /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				92E5DEDDFFEE494AB84391EE /* SimpleSpindle.h */,
+				CFDD081D36BA4B40BBE75B40 /* osimSimpleSpindleDLL.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		CB8014A053E64CE69D852340 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D5A10B061A64CF6BC8BD19C /* SimpleSpindle.cpp */,
+				EFCFF00227430B14008D34BF /* mainSpindle.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		E3D279462D94466995C25ED4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA6E3FFC60BA4821AC9D5D91 /* simpleSpindle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		462476E740E74B7DA3996FF4 /* simpleSpindle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 274C21D7E7464DBB99714BBB /* Build configuration list for PBXNativeTarget "simpleSpindle" */;
+			buildPhases = (
+				64FDB8A6624C4A77862AB171 /* Sources */,
+				D5B5EB11845746FABD0C0C6F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19FAA3FCD4624FD5A1512CB9 /* PBXTargetDependency */,
+			);
+			name = simpleSpindle;
+			productName = simpleSpindle;
+			productReference = EA6E3FFC60BA4821AC9D5D91 /* simpleSpindle */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D22517D5B239458487616F63 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1130;
+			};
+			buildConfigurationList = B2EE7B11829A4E6297E26263 /* Build configuration list for PBXProject "SimpleSpindle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 99F38CF497C44B5AAA69C8F6;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				15A270F9889F48E385E114E4 /* ALL_BUILD */,
+				7B00D1D99B9046CD885E84F4 /* ZERO_CHECK */,
+				462476E740E74B7DA3996FF4 /* simpleSpindle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AEE6D1C659D44145B21C5648 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build -f /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		EBCD39959B5246A2970208E1 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build -f /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		64FDB8A6624C4A77862AB171 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFCFF00327430B14008D34BF /* mainSpindle.cpp in Sources */,
+				1E533E4CED38483D81A62F95 /* SimpleSpindle.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		19FAA3FCD4624FD5A1512CB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B00D1D99B9046CD885E84F4 /* ZERO_CHECK */;
+			targetProxy = 20C3BE77650F448A833C664F /* PBXContainerItemProxy */;
+		};
+		2AC4FE0D4E2747AC9B9C1496 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B00D1D99B9046CD885E84F4 /* ZERO_CHECK */;
+			targetProxy = FD0D94084EF64C6D90E7A828 /* PBXContainerItemProxy */;
+		};
+		AA65785CBF3F4676B8C47648 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 462476E740E74B7DA3996FF4 /* simpleSpindle */;
+			targetProxy = 6D598B6657E242569AE5C3B4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		071DFFCCDDBE4AF291122E69 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode_12.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks,
+					"$(inherited)",
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					SPDLOG_COMPILED_LIB,
+					OPENSIM_WITH_CASADI,
+					OPENSIM_WITH_TROPTER,
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "\"/Applications/OpenSim 4.3/sdk/lib\" \"/Applications/OpenSim 4.3/sdk/Simbody/lib\" $(inherited)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"'-std=gnu++11'",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimExampleComponents.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimMoco.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimTools.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimAnalyses.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimActuators.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimSimulation.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimCommon.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/spdlog/lib/spdlog/libspdlog.a\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKsimbody.3.8.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKmath.3.8.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKcommon.3.8.dylib\"",
+					"-framework",
+					Accelerate,
+					"-lm",
+					"-ldl",
+					"-ldl",
+					"-lm",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimLepton.dylib\"",
+					"$(inherited)",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = simpleSpindle;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				SYSTEM_HEADER_SEARCH_PATHS = "\"/Applications/OpenSim 4.3/sdk/include\" \"/Applications/OpenSim 4.3/sdk/include/OpenSim\" \"/Applications/OpenSim 4.3/sdk/Simbody/include/simbody\" \"/Applications/OpenSim 4.3/sdk/spdlog/include\" $(inherited)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = MinSizeRel;
+		};
+		0B37700C077F485C953414D8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " $(inherited)";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = RelWithDebInfo;
+		};
+		28FB9DD0CA914EA1BF8AF7E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " $(inherited)";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = Release;
+		};
+		2CD381DC72E94AC885269505 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " $(inherited)";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = Debug;
+		};
+		5B32236F0CCA4D4CAFBB08DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk;
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build/build;
+			};
+			name = Debug;
+		};
+		6C7C2DF50A16450B872A43F0 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode_12.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks,
+					"$(inherited)",
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					SPDLOG_COMPILED_LIB,
+					OPENSIM_WITH_CASADI,
+					OPENSIM_WITH_TROPTER,
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "\"/Applications/OpenSim 4.3/sdk/lib\" \"/Applications/OpenSim 4.3/sdk/Simbody/lib\" $(inherited)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"'-std=gnu++11'",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimExampleComponents.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimMoco.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimTools.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimAnalyses.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimActuators.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimSimulation.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimCommon.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/spdlog/lib/spdlog/libspdlog.a\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKsimbody.3.8.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKmath.3.8.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKcommon.3.8.dylib\"",
+					"-framework",
+					Accelerate,
+					"-lm",
+					"-ldl",
+					"-ldl",
+					"-lm",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimLepton.dylib\"",
+					"$(inherited)",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = simpleSpindle;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				SYSTEM_HEADER_SEARCH_PATHS = "\"/Applications/OpenSim 4.3/sdk/include\" \"/Applications/OpenSim 4.3/sdk/include/OpenSim\" \"/Applications/OpenSim 4.3/sdk/Simbody/include/simbody\" \"/Applications/OpenSim 4.3/sdk/spdlog/include\" $(inherited)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = RelWithDebInfo;
+		};
+		729E8F40011A4D16900F4D38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode_12.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks,
+					"$(inherited)",
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					SPDLOG_COMPILED_LIB,
+					OPENSIM_WITH_CASADI,
+					OPENSIM_WITH_TROPTER,
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "\"/Applications/OpenSim 4.3/sdk/lib\" \"/Applications/OpenSim 4.3/sdk/Simbody/lib\" $(inherited)";
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11' ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimExampleComponents.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimMoco.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimTools.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimAnalyses.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimActuators.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimSimulation.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimCommon.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/spdlog/lib/spdlog/libspdlog.a\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKsimbody.3.8.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKmath.3.8.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKcommon.3.8.dylib\"",
+					"-framework",
+					Accelerate,
+					"-lm",
+					"-ldl",
+					"-ldl",
+					"-lm",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimLepton.dylib\"",
+					"$(inherited)",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = simpleSpindle;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				SYSTEM_HEADER_SEARCH_PATHS = "\"/Applications/OpenSim 4.3/sdk/include\" \"/Applications/OpenSim 4.3/sdk/include/OpenSim\" \"/Applications/OpenSim 4.3/sdk/Simbody/include/simbody\" \"/Applications/OpenSim 4.3/sdk/spdlog/include\" $(inherited)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = Debug;
+		};
+		77C5AC3498354987B1E24176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " $(inherited)";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = Debug;
+		};
+		907DDF22E41F4FCF91B2C711 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk;
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build/build;
+			};
+			name = MinSizeRel;
+		};
+		91C80ACFF96546D486F85FAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " $(inherited)";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = Release;
+		};
+		A2DB59006B544EF3A4FB87C4 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk;
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build/build;
+			};
+			name = RelWithDebInfo;
+		};
+		C3B980FB5EBB4C7F9D6D8EA4 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " $(inherited)";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = RelWithDebInfo;
+		};
+		DB744190B97A454D85BA96D3 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " $(inherited)";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = MinSizeRel;
+		};
+		E10830E5F18E4D94952813C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode_12.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks,
+					"$(inherited)",
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					SPDLOG_COMPILED_LIB,
+					OPENSIM_WITH_CASADI,
+					OPENSIM_WITH_TROPTER,
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "\"/Applications/OpenSim 4.3/sdk/lib\" \"/Applications/OpenSim 4.3/sdk/Simbody/lib\" $(inherited)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"'-std=gnu++11'",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimExampleComponents.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimMoco.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimTools.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimAnalyses.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimActuators.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimSimulation.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimCommon.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/spdlog/lib/spdlog/libspdlog.a\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKsimbody.3.8.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKmath.3.8.dylib\"",
+					"\"/Applications/OpenSim 4.3/sdk/Simbody/lib/libSimTKcommon.3.8.dylib\"",
+					"-framework",
+					Accelerate,
+					"-lm",
+					"-ldl",
+					"-ldl",
+					"-lm",
+					"\"/Applications/OpenSim 4.3/sdk/lib/libosimLepton.dylib\"",
+					"$(inherited)",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = simpleSpindle;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				SYSTEM_HEADER_SEARCH_PATHS = "\"/Applications/OpenSim 4.3/sdk/include\" \"/Applications/OpenSim 4.3/sdk/include/OpenSim\" \"/Applications/OpenSim 4.3/sdk/Simbody/include/simbody\" \"/Applications/OpenSim 4.3/sdk/spdlog/include\" $(inherited)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = Release;
+		};
+		E59F4C855EBA4D0E8B7C5300 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " $(inherited)";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = MinSizeRel;
+		};
+		F05A22767B804B7EAA146434 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk;
+				SYMROOT = /Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build/build;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1AFD6F0E133D4C30918829EE /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77C5AC3498354987B1E24176 /* Debug */,
+				28FB9DD0CA914EA1BF8AF7E4 /* Release */,
+				E59F4C855EBA4D0E8B7C5300 /* MinSizeRel */,
+				0B37700C077F485C953414D8 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		274C21D7E7464DBB99714BBB /* Build configuration list for PBXNativeTarget "simpleSpindle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				729E8F40011A4D16900F4D38 /* Debug */,
+				E10830E5F18E4D94952813C7 /* Release */,
+				071DFFCCDDBE4AF291122E69 /* MinSizeRel */,
+				6C7C2DF50A16450B872A43F0 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A3D07537B1D24A4E80CC2A7C /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CD381DC72E94AC885269505 /* Debug */,
+				91C80ACFF96546D486F85FAE /* Release */,
+				DB744190B97A454D85BA96D3 /* MinSizeRel */,
+				C3B980FB5EBB4C7F9D6D8EA4 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B2EE7B11829A4E6297E26263 /* Build configuration list for PBXProject "SimpleSpindle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B32236F0CCA4D4CAFBB08DB /* Debug */,
+				F05A22767B804B7EAA146434 /* Release */,
+				907DDF22E41F4FCF91B2C711 /* MinSizeRel */,
+				A2DB59006B544EF3A4FB87C4 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D22517D5B239458487616F63 /* Project object */;
+}

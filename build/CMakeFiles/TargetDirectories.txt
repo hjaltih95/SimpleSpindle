@@ -1,0 +1,3 @@
+/Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build/CMakeFiles/simpleSpindle.dir
+/Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build/CMakeFiles/ALL_BUILD.dir
+/Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/build/CMakeFiles/ZERO_CHECK.dir
