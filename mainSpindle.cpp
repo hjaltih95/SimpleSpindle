@@ -148,14 +148,81 @@ int main() {
         // DEFINE CONTROLS FOR THE MODEL //
         ///////////////////////////////////
         
+        // prescribe our spindle controller as a sensor??? how
+        
+        
+        
+        
+        
+        
+        
+        //////////////////////////
+        // PERFORM A SIMULATION //
+        //////////////////////////
+        
+        // Initialize the system and get the state
+        SimTK::State& si = osimModel.initSystem();
+        
+        //Initialize the cords to 0 and lock the rotational degrees of freedom so the block doesn't twist
+        
+        CoordinateSet& coordinates = osimModel.updCoordinateSet();
+        coordinates[0].setValue(si, 0);
+        coordinates[1].setValue(si, 0);
+        coordinates[2].setValue(si, 0);
+        coordinates[3].setValue(si, 0);
+        coordinates[4].setValue(si, 0);
+        coordinates[5].setValue(si, 0);
+        coordinates[0].setLocked(si, true);
+        coordinates[1].setLocked(si, true);
+        coordinates[2].setLocked(si, true);
+        // Last coordinate (index 5) is the Z translation of the block
+        coordinates[4].setLocked(si, true);
+        
+        // Compute initial conditions for muscles
+        osimModel.equilibrateMuscles(si);
 
+        // Create the force reporter
+        ForceReporter* reporter = new ForceReporter(&osimModel);
+        osimModel.updAnalysisSet().adoptAndAppend(reporter);
         
+        // Create the manager
+        Manager manager(osimModel);
+        manager.setIntegratorAccuracy(1.0e-6);
         
+        // Print out details of the model
+        osimModel.printDetailedInfo(si, std::cout);
+
+        // Integrate from initial time to final time
+        si.setTime(initialTime);
+        manager.initialize(si);
+        std::cout<<"\nIntegrating from "<<initialTime<<" to "<<finalTime<<std::endl;
+        manager.integrate(finalTime);
         
+        //////////////////////////////
+        // SAVE THE RESULTS TO FILE //
+        //////////////////////////////
+
+        // Save the simulation results
+        // Save the states
+        auto statesTable = manager.getStatesTable();
+        STOFileAdapter_<double>::write(statesTable,
+                                      "tugOfWar_fatigue_states.sto");
+
+        auto forcesTable = reporter->getForcesTable();
+        STOFileAdapter_<double>::write(forcesTable,
+                                      "tugOfWar_fatigue_forces.sto");
         
+        /*
+        // Save the muscle analysis results
+        IO::makeDir("MuscleAnalysisResults");
+        muscAnalysis->printResults("fatigue", "MuscleAnalysisResults");
+         */
         
-        
-        
+        // To print (serialize) the latest connections of the model, it is
+        // necessary to finalizeConnections() first.
+        osimModel.finalizeConnections();
+        // Save the OpenSim model to a file
+        osimModel.print("tugOfWar_fatigue_model.osim");
         
         
     }
