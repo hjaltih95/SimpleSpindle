@@ -149,6 +149,7 @@ int main() {
         ///////////////////////////////////
         
         // prescribe our spindle controller as a sensor??? how
+        // can I prescribe two controllers, one controller for the muscles and the spindle controller only to print out the muscle length and velocity?
         
         
         
@@ -206,11 +207,11 @@ int main() {
         // Save the states
         auto statesTable = manager.getStatesTable();
         STOFileAdapter_<double>::write(statesTable,
-                                      "tugOfWar_fatigue_states.sto");
+                                      "tugOfWar_states.sto");
 
         auto forcesTable = reporter->getForcesTable();
         STOFileAdapter_<double>::write(forcesTable,
-                                      "tugOfWar_fatigue_forces.sto");
+                                      "tugOfWar_forces.sto");
         
         /*
         // Save the muscle analysis results
@@ -222,7 +223,7 @@ int main() {
         // necessary to finalizeConnections() first.
         osimModel.finalizeConnections();
         // Save the OpenSim model to a file
-        osimModel.print("tugOfWar_fatigue_model.osim");
+        osimModel.print("tugOfWar_model.osim");
         
         
     }

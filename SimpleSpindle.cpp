@@ -89,7 +89,7 @@ void SimpleSpindle::extendConnectToModel(Model &model)
 {
     Super::extendConnectToModel(model);
 
-    // get the list of actuators assigned to the reflex controller
+    // get the list of actuators assigned to the controller
     Set<const Actuator>& actuators = updActuators();
 
     int cnt=0;
@@ -151,6 +151,10 @@ void SimpleSpindle::computeControls(const State& s,
         // compute the muscle lengthening(stretch) speed
         speed = musc->getLengtheningSpeed(s);
         
+        // Create vectors that stores the values of length, stretch and speed
+        SimTK::Vector musLength(1,length);
+        SimTK::Vector musStretch(1,stretch);
+        SimTK::Vector musSpeed(1,speed);
         /*
         // un-normalize muscle's maximum contraction velocity (fib_lengths/sec)
         max_speed =
