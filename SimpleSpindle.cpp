@@ -146,8 +146,8 @@ void SimpleSpindle::computeControls(const State& s,
         // get optimal fiber length and muscle length
         f_o = musc->getOptimalFiberLength();
         length = musc->getLength(s);
-        // Compute stretch beyond the optimal muscle-tendon length
-        stretch = length-rest_length*(f_o+musc->getTendonSlackLength());
+        // Compute stretch, the msucle spindle only monitors the muscle fiber length not the muscle-tendon length
+        stretch = length-rest_length*f_o;
         // compute the muscle lengthening(stretch) speed
         speed = musc->getLengtheningSpeed(s);
         
@@ -155,6 +155,12 @@ void SimpleSpindle::computeControls(const State& s,
         SimTK::Vector musLength(1,length);
         SimTK::Vector musStretch(1,stretch);
         SimTK::Vector musSpeed(1,speed);
+        
+        
+        // create control output for stretch reflex
+        
+        
+        
         /*
         // un-normalize muscle's maximum contraction velocity (fib_lengths/sec)
         max_speed =
