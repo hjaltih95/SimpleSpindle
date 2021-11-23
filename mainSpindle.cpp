@@ -151,10 +151,25 @@ int main() {
         // prescribe our spindle controller as a sensor??? how
         // can I prescribe two controllers, one controller for the muscles and the spindle controller only to print out the muscle length and velocity?
         
+        PrescribedController *muscleController = new PrescribedController();
+        muscleController->setActuators(osimModel.updActuators());
         
+        // set the muscle controls
+        muscleController->prescribeControlForActuator("original1", new Constant(1.0));
+        muscleController->prescribeControlForActuator("original2", new Constant(1.0));
         
+        // Add the muscle controller to the model
+        osimModel.addController(muscleController);
         
+        // Add analysis
+        MuscleAnalysis* muscAnalysis = new MuscleAnalysis(&osimModel);
+        Array<std::string> coords(blockToGround->getCoordinate(FreeJoint::Coord::TranslationZ).getName(),1);
+        muscAnalysis->setCoordinates(coords);
+        muscAnalysis->setComputeMoments(false);
+        osimModel.addAnalysis(muscAnalysis);
         
+        // set visualizer
+        osimModel.setUseVisualizer(false);
         
         
         //////////////////////////
