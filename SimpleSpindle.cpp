@@ -91,6 +91,8 @@ void SimpleSpindle::extendConnectToModel(Model &model)
 
     // get the list of actuators assigned to the controller
     Set<const Actuator>& actuators = updActuators();
+    
+    // get a list of spindles
 
     int cnt=0;
  
@@ -126,6 +128,8 @@ void SimpleSpindle::computeControls(const State& s,
     
     
     double rest_length = get_normalized_rest_length();
+    
+    // make it so spindle can connect to muscles, and many spindels can connect to to one muscle
 
     
     // optimal fiber length

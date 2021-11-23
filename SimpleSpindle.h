@@ -28,7 +28,8 @@
 // INCLUDE
 //============================================================================
 #include "osimSimpleSpindleDLL.h"
-#include "OpenSim/Simulation/Control/Controller.h"
+#include "OpenSim/Simulation/Model/Muscle.h"
+#include "OpenSim/Simulation/Model/ModelComponent.h"
 
 
 namespace OpenSim { 
@@ -43,21 +44,27 @@ namespace OpenSim {
  *
  * @author  Ajay Seth
  */
-class OSIMSIMPLESPINDLE_API SimpleSpindle : public Controller {
-OpenSim_DECLARE_CONCRETE_OBJECT(SimpleSpindle, Controller);
+class OSIMSIMPLESPINDLE_API SimpleSpindle : public ModelComponent {
+OpenSim_DECLARE_ABSTRACT_OBJECT(SimpleSpindle, ModelComponent);
 
 public:
 //=============================================================================
 // PROPERTIES
 //=============================================================================
-    /*
-    OpenSim_DECLARE_PROPERTY(gain_length, double,
-        "Control gain applied to stretch length" );
-    OpenSim_DECLARE_PROPERTY(gain_velocity, double,
-        "Control gain applied to stretch velocity");
-     */
+    
     OpenSim_DECLARE_PROPERTY(normalized_rest_length, double,
-        "The intended rest length of the muscle ")
+        "The intended rest length of the spindle");
+//==============================================================================
+// SOCKETS
+//==============================================================================
+
+    OpenSim_DECLARE_SOCKET(spindle_frame, Muscle, "Spindle is connected to the muscle");
+    
+//=============================================================================
+// OUTPUTS
+//=============================================================================
+    // we get our propriceptive afferents
+    OpenSim_DECLARE_OUTPUT(signal, double, getSignal, SimTK::Stage::Dynamics);
 
 //=============================================================================
 // METHODS
@@ -67,14 +74,29 @@ public:
     //--------------------------------------------------------------------------
     /** Default constructor. */
     SimpleSpindle();
+    SimpleSpindle(double rest_length);
 
     // Uses default (compiler-generated) destructor, copy constructor and copy 
     // assignment operator.
 
-    /** Convenience constructor 
-    * @param rest_length       desired length of the muscle
-    */
-    SimpleSpindle(double rest_length);
+//--------------------------------------------------------------------------
+// SPINDLE PARAMETER ACCESSORS
+//--------------------------------------------------------------------------
+    // get/set the rest length of the spindle
+    double getNormalizedRestLength() const;
+    void setNormalizedRestLength(double normalizedRestLength);
+    
+    
+    
+//--------------------------------------------------------------------------
+// SPINDLE STATE DEPENDENT ACCESSORS
+//--------------------------------------------------------------------------
+/** @name Spindle State Dependendt Access Methods
+    Get quanitites of interest common to all spindles*/
+    void setSignal(SimTK::State& s, double signal) const;
+    double getSignal(const SimTK::State& s) const;
+    
+    
 
     /** Compute the controls for actuators (muscles)
      *  This method defines the behavior of the ToyReflexController 
@@ -82,8 +104,8 @@ public:
      * @param s         system state 
      * @param controls  writable model controls
      */
-    void computeControls(const SimTK::State& s,
-                         SimTK::Vector &controls) const override;
+    void computeSignals(const SimTK::State& s,
+                         SimTK::Vector &signals) const;
 
 
 private:
@@ -92,6 +114,9 @@ private:
     // ModelComponent interface to connect this component to its model
     void extendConnectToModel(Model& aModel) override;
 
+    
+protected:
+    double _normalizedRestLength;
     //=========================================================================
 };  // END of class SimpleSpindle
 
