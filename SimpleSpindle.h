@@ -30,9 +30,15 @@
 #include "osimSimpleSpindleDLL.h"
 #include "OpenSim/Simulation/Model/Muscle.h"
 #include "OpenSim/Simulation/Model/ModelComponent.h"
+#include "OpenSim/Simulation/Control/Controller.h"
 
 
-namespace OpenSim { 
+namespace OpenSim {
+
+
+// Forward declarations of classes that are used by the spindle implementation
+class Actuator;
+
 
 //=============================================================================
 //=============================================================================
@@ -74,10 +80,25 @@ public:
     //--------------------------------------------------------------------------
     /** Default constructor. */
     SimpleSpindle();
-    SimpleSpindle(double rest_length);
+    SimpleSpindle( const std::string& name,
+                  const Muscle& spindle,
+                  double rest_length);
 
     // Uses default (compiler-generated) destructor, copy constructor and copy 
     // assignment operator.
+    
+//--------------------------------------------------------------------------
+// Spindle Interface
+//--------------------------------------------------------------------------
+    /** get a const reference to the current set of const actuators */
+      const Set<const Actuator>& getActuatorSet() const;
+    /** get a writable reference to the set of const actuators for this muscle (muscle the spindle is in) */
+    Set<const Actuator>& updActuators();
+    
+    /* get a const reference to the current set of const spindles */
+    const Set<const SimpleSpindle>& getSpindleSet() const;
+    /* get a writable reference to the set of const spindles in the muscle */
+    Set<const SimpleSpindle>& updSpindles();
 
 //--------------------------------------------------------------------------
 // SPINDLE PARAMETER ACCESSORS
@@ -85,6 +106,10 @@ public:
     // get/set the rest length of the spindle
     double getNormalizedRestLength() const;
     void setNormalizedRestLength(double normalizedRestLength);
+    
+    //get the muscle frame to witch this spindle attatches to
+    const Muscle& getSpindleFrame() const;
+    
     
     
     
@@ -98,11 +123,11 @@ public:
     
     
 
-    /** Compute the controls for actuators (muscles)
-     *  This method defines the behavior of the ToyReflexController 
+    /** Compute the signals for spindles
+     *  This method defines the behavior of the spindles
      *
      * @param s         system state 
-     * @param controls  writable model controls
+     * @param signals  writable model signals
      */
     void computeSignals(const SimTK::State& s,
                          SimTK::Vector &signals) const;

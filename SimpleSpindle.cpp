@@ -27,8 +27,8 @@
 // INCLUDES
 //=============================================================================
 #include "SimpleSpindle.h"
-#include <OpenSim/Simulation/Model/Muscle.h>
 #include <OpenSim/OpenSim.h>
+
 
 // This allows us to use OpenSim functions, classes, etc., without having to
 // prefix the names of those things with "OpenSim::".
@@ -48,8 +48,15 @@ SimpleSpindle::SimpleSpindle()
 }
 
 /* Convenience constructor. */
-SimpleSpindle::SimpleSpindle(double rest_length)
+SimpleSpindle::SimpleSpindle(const std::string& name,
+                             const Muscle& spindle,
+                             double rest_length)
 {
+    OPENSIM_THROW_IF(name.empty(), ComponentHasNoName, getClassName());
+    
+    setName(name);
+    connectSocket_spindle_frame(spindle);
+    
     constructProperties();
     set_normalized_rest_length(rest_length);
     /*
@@ -92,7 +99,9 @@ void SimpleSpindle::extendConnectToModel(Model &model)
     // get the list of actuators assigned to the controller
     Set<const Actuator>& actuators = updActuators();
     
-    // get a list of spindles
+    // get the list of spindles assigned to the muscles
+    Set<const SimpleSpindle>& spindles = updSpindles();
+    
 
     int cnt=0;
  
@@ -109,6 +118,18 @@ void SimpleSpindle::extendConnectToModel(Model &model)
 }
 
 //=============================================================================
+// GET AND SET
+//=============================================================================
+
+//-----------------------------------------------------------------------------
+// Spindle frame
+//-----------------------------------------------------------------------------
+const Muscle& SimpleSpindle::getSpindleFrame() const
+{
+    return getSocket<Muscle>("spindle_frame").getConnectee();
+}
+
+//=============================================================================
 // COMPUTATIONS
 //=============================================================================
 //_____________________________________________________________________________
@@ -116,10 +137,10 @@ void SimpleSpindle::extendConnectToModel(Model &model)
  * Compute the controls for muscles under influence of this reflex controller
  *
  * @param s         current state of the system
- * @param controls  system wide controls to which this controller can add
+ * @param singals  system wide signals to which this component can read off
  */
-void SimpleSpindle::computeControls(const State& s,
-                                          Vector &controls) const {
+void SimpleSpindle::computeSignals(const State& s,
+                                          Vector &signals) const {
     // get time
     double t = s.getTime();
 
