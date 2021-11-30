@@ -70,7 +70,7 @@ public:
 // OUTPUTS
 //=============================================================================
     // we get our propriceptive afferents
-    OpenSim_DECLARE_OUTPUT(signal, double, getSignal, SimTK::Stage::Dynamics);
+    OpenSim_DECLARE_OUTPUT(signal, double, getSignal, SimTK::Stage::Velocity);
 
 //=============================================================================
 // METHODS
@@ -91,7 +91,7 @@ public:
 // Spindle Interface
 //--------------------------------------------------------------------------
     /** get a const reference to the current set of const actuators */
-      const Set<const Actuator>& getActuatorSet() const;
+    const Set<const Actuator>& getActuatorSet() const;
     /** get a writable reference to the set of const actuators for this muscle (muscle the spindle is in) */
     Set<const Actuator>& updActuators();
     
@@ -107,10 +107,10 @@ public:
     double getNormalizedRestLength() const;
     void setNormalizedRestLength(double normalizedRestLength);
     
+  // SOCKET get/set
+    
     //get the muscle frame to witch this spindle attatches to
     const Muscle& getSpindleFrame() const;
-    
-    
     
     
 //--------------------------------------------------------------------------
@@ -120,6 +120,8 @@ public:
     Get quanitites of interest common to all spindles*/
     void setSignal(SimTK::State& s, double signal) const;
     double getSignal(const SimTK::State& s) const;
+    
+    virtual void addInSignals(const SimTK::Vector& muscleSignals, SimTK::Vector& modelSignals) const;
     
     
 
