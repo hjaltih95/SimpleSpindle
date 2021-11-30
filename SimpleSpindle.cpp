@@ -143,7 +143,7 @@ double SimpleSpindle::getSignal(const SimTK::State& s) const
     stretch = length-rest_length*f_o;
     // compute the muscle lengthening(stretch) speed
     speed = musc->getLengtheningSpeed(s);
-    signal = length;
+    signal = stretch;
     
     return signal;
 }
