@@ -50,13 +50,13 @@ SimpleSpindle::SimpleSpindle()
 
 /* Convenience constructor. */
 SimpleSpindle::SimpleSpindle(const std::string& name,
-                             const Muscle& spindle,
+                             const Muscle& muscle,
                              double rest_length)
 {
     OPENSIM_THROW_IF(name.empty(), ComponentHasNoName, getClassName());
     
     setName(name);
-    connectSocket_spindle_frame(spindle);
+    connectSocket_muscle(muscle);
     
     constructProperties();
     set_normalized_rest_length(rest_length);
@@ -96,24 +96,10 @@ void SimpleSpindle::constructProperties()
 void SimpleSpindle::extendConnectToModel(Model &model)
 {
     Super::extendConnectToModel(model);
-    // get the list of actuators assigned to the controller
-    Set<const Actuator>& actuators = updActuators();
+
     // get the list of spindles assigned to the muscles
     Set<const SimpleSpindle>& spindles = updSpindles();
     
-
-    int cnt=0;
- 
-    while(cnt < actuators.getSize()){
-        const Muscle *musc = dynamic_cast<const Muscle*>(&actuators[cnt]);
-        // control muscles only
-        if(!musc){
-            log_warn("SimpleSpindle assigned a non-muscle actuator '{}', "
-                     "which will be ignored.", actuators[cnt].getName());
-            actuators.remove(cnt);
-        }else
-            cnt++;
-    }
 }
 
 //=============================================================================
@@ -125,7 +111,6 @@ double SimpleSpindle::getSignal(const SimTK::State& s) const
     
     double signal = 0;
     double rest_length = get_normalized_rest_length();
-    const Set<const SimpleSpindle>& spindles = getSpindleSet();
     // optimal fiber length
     double f_o = 1;
     // muscle length
@@ -135,14 +120,14 @@ double SimpleSpindle::getSignal(const SimTK::State& s) const
     // muscle lengthening speed
     double speed = 0;
 
-    const Muscle *musc = dynamic_cast<const Muscle*>(&spindles[0]);
+    const Muscle& musc = getMuscle();
     // get optimal fiber length and muscle length
-    f_o = musc->getOptimalFiberLength();
-    length = musc->getLength(s);
+    f_o = musc.getOptimalFiberLength();
+    length = musc.getLength(s);
     // Compute stretch, the msucle spindle only monitors the muscle fiber length not the muscle-tendon length
     stretch = length-rest_length*f_o;
     // compute the muscle lengthening(stretch) speed
-    speed = musc->getLengtheningSpeed(s);
+    speed = musc.getLengtheningSpeed(s);
     signal = stretch;
     
     return signal;
@@ -155,9 +140,9 @@ double SimpleSpindle::getSignal(const SimTK::State& s) const
 //-----------------------------------------------------------------------------
 // Spindle frame
 //-----------------------------------------------------------------------------
-const Muscle& SimpleSpindle::getSpindleFrame() const
+const Muscle& SimpleSpindle::getMuscle() const
 {
-    return getSocket<Muscle>("spindle_frame").getConnectee();
+    return getSocket<Muscle>("muscle").getConnectee();
 }
 
 //=============================================================================
@@ -170,20 +155,20 @@ const Muscle& SimpleSpindle::getSpindleFrame() const
  * @param s         current state of the system
  * @param singals  system wide signals to which this component can read off
  */
+/*
 void SimpleSpindle::computeSignals(const State& s,
                                           Vector &signals) const {
     // get time
     double t = s.getTime();
-/*
+    /*
     // get the list of actuators assigned to the reflex controller
     const Set<const Actuator>& actuators = getActuatorSet();
     */
-    // get the list of spindles assigned to the muscle
-    const Set<const SimpleSpindle>& spindles = getSpindleSet();
-    
+ 
+    /*
     double rest_length = get_normalized_rest_length();
     
-    // make it so spindle can connect to muscles, and many spindels can connect to to one muscle
+    // make it so spindle can connect to muscles, and many spindles can connect to one muscle
 
     
     // optimal fiber length
@@ -198,7 +183,7 @@ void SimpleSpindle::computeSignals(const State& s,
     double max_speed = 0;
     //reflex control
     double signal = 0;
-
+    
     for(int i=0; i<spindles.getSize(); ++i){
         const Muscle *musc = dynamic_cast<const Muscle*>(&spindles[i]);
         // get optimal fiber length and muscle length
@@ -220,7 +205,7 @@ void SimpleSpindle::computeSignals(const State& s,
         
         
         
-        /*
+        
         // un-normalize muscle's maximum contraction velocity (fib_lengths/sec)
         max_speed =
             musc->getOptimalFiberLength()*musc->getMaxContractionVelocity();
@@ -229,8 +214,8 @@ void SimpleSpindle::computeSignals(const State& s,
         SimTK::Vector actControls(1,control);
         // add reflex controls to whatever controls are already in place.
         musc->addInControls(actControls, controls);
-        */
+        
     }
 }
-
+*/
 

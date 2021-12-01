@@ -173,6 +173,13 @@ int main() {
         
         
         //////////////////////////
+        // Define spindle //
+        //////////////////////////
+        
+        SimpleSpindle *musclSpindle = new SimpleSpindle();
+        musclSpindle
+        
+        //////////////////////////
         // PERFORM A SIMULATION //
         //////////////////////////
         

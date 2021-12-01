@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/osimPluginDLL.h">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/RegisterTypes_osimPlugin.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/hjaltihilmarsson/Documents/OpenSim/4.3/Code/CPP/SimpleSpindle/RegisterTypes_osimPlugin.h">
+   </FileRef>
+   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

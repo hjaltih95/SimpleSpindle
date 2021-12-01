@@ -33,6 +33,7 @@
 #include "OpenSim/Simulation/Control/Controller.h"
 
 
+
 namespace OpenSim {
 
 
@@ -51,7 +52,7 @@ class Actuator;
  * @author  Ajay Seth
  */
 class OSIMSIMPLESPINDLE_API SimpleSpindle : public ModelComponent {
-OpenSim_DECLARE_ABSTRACT_OBJECT(SimpleSpindle, ModelComponent);
+OpenSim_DECLARE_CONCRETE_OBJECT(SimpleSpindle, ModelComponent);
 
 public:
 //=============================================================================
@@ -64,14 +65,14 @@ public:
 // SOCKETS
 //==============================================================================
 
-    OpenSim_DECLARE_SOCKET(spindle_frame, Muscle, "Spindle is connected to the muscle");
+    OpenSim_DECLARE_SOCKET(muscle, Muscle, "The muscle that the spindle measures");
     
 //=============================================================================
 // OUTPUTS
 //=============================================================================
     // we get our propriceptive afferents
     OpenSim_DECLARE_OUTPUT(signal, double, getSignal, SimTK::Stage::Velocity);
-
+    // add outputs for Ia and II afferents
 //=============================================================================
 // METHODS
 //=============================================================================
@@ -90,13 +91,7 @@ public:
 //--------------------------------------------------------------------------
 // Spindle Interface
 //--------------------------------------------------------------------------
-    /** get a const reference to the current set of const actuators */
-    const Set<const Actuator>& getActuatorSet() const;
-    /** get a writable reference to the set of const actuators for this muscle (muscle the spindle is in) */
-    Set<const Actuator>& updActuators();
     
-    /* get a const reference to the current set of const spindles */
-    const Set<const SimpleSpindle>& getSpindleSet() const;
     /* get a writable reference to the set of const spindles in the muscle */
     Set<const SimpleSpindle>& updSpindles();
 
@@ -110,7 +105,7 @@ public:
   // SOCKET get/set
     
     //get the muscle frame to witch this spindle attatches to
-    const Muscle& getSpindleFrame() const;
+    const Muscle& getMuscle() const;
     
     
 //--------------------------------------------------------------------------
