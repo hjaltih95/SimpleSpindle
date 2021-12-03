@@ -36,7 +36,7 @@
 #ifdef OSIMSIMPLESPINDLE_EXPORTS
 #define OSIMSIMPLESPINDLE_API __declspec(dllexport)
 #else
-#define OSIMESIMPLESPINDLE_API __declspec(dllimport)
+#define OSIMSIMPLESPINDLE_API __declspec(dllimport)
 #endif
 
 #endif // PLATFORM

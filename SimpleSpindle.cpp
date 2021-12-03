@@ -130,6 +130,7 @@ double SimpleSpindle::getSignal(const SimTK::State& s) const
     speed = musc.getLengtheningSpeed(s);
     signal = stretch;
     
+    
     return signal;
 }
 

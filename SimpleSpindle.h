@@ -82,7 +82,7 @@ public:
     /** Default constructor. */
     SimpleSpindle();
     SimpleSpindle( const std::string& name,
-                  const Muscle& spindle,
+                  const Muscle& muscle,
                   double rest_length);
 
     // Uses default (compiler-generated) destructor, copy constructor and copy 
