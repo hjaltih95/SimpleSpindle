@@ -71,8 +71,9 @@ public:
 // OUTPUTS
 //=============================================================================
     // we get our propriceptive afferents
-    OpenSim_DECLARE_OUTPUT(signal, double, getSignal, SimTK::Stage::Velocity);
+    OpenSim_DECLARE_OUTPUT(spindle_length, double, getSpindleLength, SimTK::Stage::Position);
     // add outputs for Ia and II afferents
+    OpenSim_DECLARE_OUTPUT(spindle_speed, double, getSpindleSpeed, SimTK::Stage::Velocity);
 //=============================================================================
 // METHODS
 //=============================================================================
@@ -88,12 +89,6 @@ public:
     // Uses default (compiler-generated) destructor, copy constructor and copy 
     // assignment operator.
     
-//--------------------------------------------------------------------------
-// Spindle Interface
-//--------------------------------------------------------------------------
-    
-    /* get a writable reference to the set of const spindles in the muscle */
-    Set<const SimpleSpindle>& updSpindles();
 
 //--------------------------------------------------------------------------
 // SPINDLE PARAMETER ACCESSORS
@@ -113,21 +108,12 @@ public:
 //--------------------------------------------------------------------------
 /** @name Spindle State Dependendt Access Methods
     Get quanitites of interest common to all spindles*/
-    void setSignal(SimTK::State& s, double signal) const;
-    double getSignal(const SimTK::State& s) const;
+    void setSpindleLength(SimTK::State& s, double spindle_length) const;
+    double getSpindleLength(const SimTK::State& s) const;
     
-    virtual void addInSignals(const SimTK::Vector& muscleSignals, SimTK::Vector& modelSignals) const;
+    void setSpindleSpeed(SimTK::State& s, double spindle_velocity) const;
+    double getSpindleSpeed(const SimTK::State& s) const;
     
-    
-
-    /** Compute the signals for spindles
-     *  This method defines the behavior of the spindles
-     *
-     * @param s         system state 
-     * @param signals  writable model signals
-     */
-    void computeSignals(const SimTK::State& s,
-                         SimTK::Vector &signals) const;
 
 
 private:

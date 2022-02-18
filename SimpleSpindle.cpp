@@ -60,10 +60,7 @@ SimpleSpindle::SimpleSpindle(const std::string& name,
     
     constructProperties();
     set_normalized_rest_length(rest_length);
-    /*
-    set_gain_length(gain_l);
-    set_gain_velocity(gain_v);
-     */
+ 
 }
 
 //=============================================================================
@@ -101,13 +98,13 @@ void SimpleSpindle::extendConnectToModel(Model &model)
 }
 
 //=============================================================================
-// SIGNALS
+// OUTPUTS
 //=============================================================================
 
-double SimpleSpindle::getSignal(const SimTK::State& s) const
+double SimpleSpindle::getSpindleLength(const SimTK::State& s) const
 {
     
-    double signal = 0;
+    double spindle_length = 0;
     double rest_length = get_normalized_rest_length();
     // optimal fiber length
     double f_o = 1;
@@ -115,8 +112,7 @@ double SimpleSpindle::getSignal(const SimTK::State& s) const
     double length = 0;
     // muscle stretsch
     double stretch = 0;
-    // muscle lengthening speed
-    double speed = 0;
+ 
 
     const Muscle& musc = getMuscle();
     // get optimal fiber length and muscle length
@@ -125,11 +121,25 @@ double SimpleSpindle::getSignal(const SimTK::State& s) const
     // Compute stretch, the msucle spindle only monitors the muscle fiber length not the muscle-tendon length
     stretch = length-rest_length*f_o;
     // compute the muscle lengthening(stretch) speed
+    spindle_length = stretch;
+    
+    
+    return spindle_length;
+}
+
+double SimpleSpindle::getSpindleSpeed(const SimTK::State& s) const
+{
+    double spindle_speed = 0;
+    // muscle speed
+    double speed = 0;
+    // get a reference to the muscle
+    const Muscle& musc = getMuscle();
+    // muscle lengthening speed
     speed = musc.getLengtheningSpeed(s);
-    signal = stretch;
     
+    spindle_speed = speed;
     
-    return signal;
+    return spindle_speed;
 }
 
 //=============================================================================
@@ -144,77 +154,5 @@ const Muscle& SimpleSpindle::getMuscle() const
     return getSocket<Muscle>("muscle").getConnectee();
 }
 
-//=============================================================================
-// COMPUTATIONS
-//=============================================================================
-//_____________________________________________________________________________
-/**
- * Compute the signals for spindles
- *
- * @param s         current state of the system
- * @param singals  system wide signals to which this component can read off
- */
-/*
-void SimpleSpindle::computeSignals(const State& s,
-                                          Vector &signals) const {
-    // get time
-    double t = s.getTime();
-    /*
-    // get the list of actuators assigned to the reflex controller
-    const Set<const Actuator>& actuators = getActuatorSet();
-    */
- 
-    /*
-    double rest_length = get_normalized_rest_length();
-    
-    // make it so spindle can connect to muscles, and many spindles can connect to one muscle
 
-    
-    // optimal fiber length
-    double f_o = 1;
-    // muscle length
-    double length = 0;
-    // muscle stretsch
-    double stretch = 0;
-    // muscle lengthening speed
-    double speed = 0;
-    // max muscle lengthening (stretch) speed
-    double max_speed = 0;
-    //reflex control
-    double signal = 0;
-    
-    for(int i=0; i<spindles.getSize(); ++i){
-        const Muscle *musc = dynamic_cast<const Muscle*>(&spindles[i]);
-        // get optimal fiber length and muscle length
-        f_o = musc->getOptimalFiberLength();
-        length = musc->getLength(s);
-        // Compute stretch, the msucle spindle only monitors the muscle fiber length not the muscle-tendon length
-        stretch = length-rest_length*f_o;
-        // compute the muscle lengthening(stretch) speed
-        speed = musc->getLengtheningSpeed(s);
-        
-        // Create vectors that stores the values of length, stretch and speed
-        SimTK::Vector musLength(1,length);
-        SimTK::Vector musStretch(1,stretch);
-        SimTK::Vector musSpeed(1,speed);
-        
-        
-        // Read out muscle length
-        signal = length;
-        
-        
-        
-        
-        // un-normalize muscle's maximum contraction velocity (fib_lengths/sec)
-        max_speed =
-            musc->getOptimalFiberLength()*musc->getMaxContractionVelocity();
-        control = 0.5*get_gain()*(fabs(speed)+speed)/max_speed;
-
-        SimTK::Vector actControls(1,control);
-        // add reflex controls to whatever controls are already in place.
-        musc->addInControls(actControls, controls);
-        
-    }
-}
-*/
 
