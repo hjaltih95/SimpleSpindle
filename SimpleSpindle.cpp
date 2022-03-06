@@ -120,9 +120,8 @@ double SimpleSpindle::getSpindleLength(const SimTK::State& s) const
     length = musc.getLength(s);
     // Compute stretch, the msucle spindle only monitors the muscle fiber length not the muscle-tendon length
     stretch = length-rest_length*f_o;
-    // compute the muscle lengthening(stretch) speed
-    spindle_length = stretch;
-    
+    // make the muscle stretch unit less
+    spindle_length = 0.5*(fabs(stretch)+stretch)/f_o;
     
     return spindle_length;
 }
@@ -130,14 +129,22 @@ double SimpleSpindle::getSpindleLength(const SimTK::State& s) const
 double SimpleSpindle::getSpindleSpeed(const SimTK::State& s) const
 {
     double spindle_speed = 0;
+    double f_o = 1;
+    double max_speed = 0;
     // muscle speed
     double speed = 0;
     // get a reference to the muscle
     const Muscle& musc = getMuscle();
+    // get optimal fiber length
+    f_o = musc.getOptimalFiberLength();
     // muscle lengthening speed
     speed = musc.getLengtheningSpeed(s);
+    // the maximum lengthening speed of the muscle
+    max_speed = f_o*musc.getMaxContractionVelocity();
     
-    spindle_speed = speed;
+    // make the muscle lengthening speed unit less
+    spindle_speed = 0.5*(fabs(speed)+speed)/max_speed;
+    
     
     return spindle_speed;
 }
